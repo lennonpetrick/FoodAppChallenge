@@ -31,8 +31,8 @@ class FoodRepositoryImpl(
     override fun getFoods(): Observable<List<FoodEntity>> {
         val local = localDataSource as LocalStorage<List<FoodEntity>>
         val remoteData = cloudDataSource.getFoods()
-                .map { entities -> local.save(entities)
-                    entities }
+                .map { local.save(it)
+                    it }
                 .toObservable()
 
         if (!local.isCached()) {
