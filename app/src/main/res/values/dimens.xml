@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- FOOD LIST ACTIVITY -->
+    <dimen name="recycler_view_padding">10dp</dimen>
+
+    <!-- ITEM RECYCLER VIEW -->
+    <dimen name="card_vertical_padding">10dp</dimen>
+    <dimen name="card_horizontal_padding">16dp</dimen>
+    <dimen name="view_horizontal_margin">20dp</dimen>
+    <dimen name="image_user_size">50dp</dimen>
+    <dimen name="content_header_right_start_margin">20dp</dimen>
+    <dimen name="food_favorite_count_start_margin">50dp</dimen>
+    <dimen name="food_picture_height">150dp</dimen>
+</resources>

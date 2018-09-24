@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">FoodAppChallenge</string>
+    <string name="app_name">Food App</string>
+
+    <string name="unknown_error">Something may be wrong :(</string>
 </resources>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/ivUserPicture"
+        android:layout_width="@dimen/image_user_size"
+        android:layout_height="@dimen/image_user_size"
+        android:background="@drawable/circular_shape"
+        android:src="@drawable/ic_launcher_background"/>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/content_header_right_start_margin"
+        app:layout_constraintBottom_toBottomOf="@+id/ivUserPicture"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivUserPicture"
+        app:layout_constraintTop_toTopOf="@+id/ivUserPicture"
+        app:layout_constraintHorizontal_bias="0.0">
+
+        <TextView
+            style="@style/TextViewStyle.Medium.Bold"
+            android:id="@+id/tvUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="User name" />
+
+        <TextView
+            style="@style/TextViewStyle.Small"
+            android:id="@+id/tvFoodDateTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tvUserName"
+            app:layout_constraintStart_toStartOf="@+id/tvUserName"
+            tools:text="Date, time"/>
+
+        <TextView
+            style="@style/TextViewStyle.Small"
+            android:id="@+id/tvFoodFavCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/food_favorite_count_start_margin"
+            app:layout_constraintTop_toTopOf="@+id/tvFoodDateTime"
+            app:layout_constraintBottom_toBottomOf="@+id/tvFoodDateTime"
+            app:layout_constraintStart_toEndOf="@+id/tvFoodDateTime"
+            tools:text="1314"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:src="@android:drawable/star_off"
+            app:layout_constraintTop_toTopOf="@+id/tvFoodFavCount"
+            app:layout_constraintBottom_toBottomOf="@+id/tvFoodFavCount"
+            app:layout_constraintEnd_toStartOf="@+id/tvFoodFavCount"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>
