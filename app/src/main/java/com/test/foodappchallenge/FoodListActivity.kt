@@ -44,11 +44,11 @@ class FoodListActivity : AppCompatActivity(), FoodListContract.View {
     }
 
     override fun displayLoading() {
-        //TODO("not implemented")
+        refreshLayout.isRefreshing = true
     }
 
     override fun dismissLoading() {
-        //TODO("not implemented")
+        refreshLayout.isRefreshing = false
     }
 
     private fun injectDependencies() {

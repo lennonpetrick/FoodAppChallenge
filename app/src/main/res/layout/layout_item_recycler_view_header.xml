@@ -10,7 +10,6 @@
         android:id="@+id/ivUserPicture"
         android:layout_width="@dimen/image_user_size"
         android:layout_height="@dimen/image_user_size"
-        android:background="@drawable/circular_shape"
         android:src="@drawable/ic_launcher_background"/>
 
     <android.support.constraint.ConstraintLayout

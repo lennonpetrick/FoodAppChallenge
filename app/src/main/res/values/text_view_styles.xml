@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="TextViewStyle" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/text_grey</item>
     </style>
 
     <style name="TextViewStyle.Small" parent="TextViewStyle">
-        <item name="android:textAppearance">?android:textAppearanceSmall</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
     </style>
 
     <style name="TextViewStyle.Medium.Bold" parent="TextViewStyle">
         <item name="android:textStyle">bold</item>
-        <item name="android:textAppearance">?android:textAppearanceMedium</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
     </style>
 
     <style name="TextViewStyle.Large" parent="TextViewStyle">
-        <item name="android:textAppearance">?android:textAppearanceLarge</item>
+        <item name="android:textSize">@dimen/text_size_large</item>
     </style>
 </resources>

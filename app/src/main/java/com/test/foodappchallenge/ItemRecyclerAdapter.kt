@@ -1,11 +1,13 @@
 package com.test.foodappchallenge
 
+import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import com.squareup.picasso.Picasso
 import com.test.foodappchallenge.domain.model.Food
 import kotlinx.android.synthetic.main.layout_item_recycler_view.view.*
 import kotlinx.android.synthetic.main.layout_item_recycler_view_header.view.*
@@ -54,19 +56,29 @@ class ItemRecyclerAdapter(
         fun bind(food: Food) {
             food.user?.let { user ->
                 user.profileImage?.let {
-                    ivUserPicture.setImageResource(it)
+                    Picasso.get()
+                            .load(getDrawableId(itemView.context, it))
+                            .transform(CircleTransformation())
+                            .into(ivUserPicture)
                 }
 
                 tvUserName.text = user.name
             }
 
             food.image?.let {
-                ivFoodPicture.setImageResource(it)
+                Picasso.get()
+                        .load(getDrawableId(itemView.context, it))
+                        .into(ivFoodPicture)
             }
 
             tvDateTime.text = food.dateTime
             tvFavCount.text = food.favoriteCount.toString()
             tvFoodDescription.text = food.description
+        }
+
+        private fun getDrawableId(context: Context, key: String): Int {
+            return context.resources
+                    .getIdentifier(key.toLowerCase(), "drawable", context.packageName)
         }
     }
 

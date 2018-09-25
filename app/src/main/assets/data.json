@@ -1,0 +1,62 @@
+[
+  {
+    "image": "food1",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id metus blandit, lobortis tellus nec, cursus dui. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus ullamcorper ipsum eu massa malesuada sodales. Pellentesque gravida diam lacus, quis pellentesque lectus tempor at. Nam congue orci sollicitudin velit cursus bibendum. In aliquet nisl quis risus ornare, sed mattis sem auctor. Phasellus consequat eros non ullamcorper vehicula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce malesuada pretium lacinia. Sed nec orci fringilla, tempor erat ac, molestie urna. Mauris dapibus vulputate enim, et placerat libero tincidunt eget. Etiam porta mi eu mauris ullamcorper posuere",
+    "favoriteCount": 1346,
+    "dateTime": "Today, 1:45PM",
+    "user": {
+      "name": "Jess Mckenzie",
+      "profileImage": "profile1"
+    }
+  },
+  {
+    "image": "food2",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id metus blandit, lobortis tellus nec, cursus dui. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus ullamcorper ipsum eu massa malesuada sodales. Pellentesque gravida diam lacus, quis pellentesque lectus tempor at. Nam congue orci sollicitudin velit cursus bibendum. In aliquet nisl quis risus ornare, sed mattis sem auctor. Phasellus consequat eros non ullamcorper vehicula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce malesuada pretium lacinia. Sed nec orci fringilla, tempor erat ac, molestie urna. Mauris dapibus vulputate enim, et placerat libero tincidunt eget. Etiam porta mi eu mauris ullamcorper posuere",
+    "favoriteCount": 876,
+    "dateTime": "Today, 12:34PM",
+    "user": {
+      "name": "Nicholas Nguyen",
+      "profileImage": "profile2"
+    }
+  },
+  {
+    "image": "food3",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id metus blandit, lobortis tellus nec, cursus dui. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus ullamcorper ipsum eu massa malesuada sodales. Pellentesque gravida diam lacus, quis pellentesque lectus tempor at. Nam congue orci sollicitudin velit cursus bibendum. In aliquet nisl quis risus ornare, sed mattis sem auctor. Phasellus consequat eros non ullamcorper vehicula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce malesuada pretium lacinia. Sed nec orci fringilla, tempor erat ac, molestie urna. Mauris dapibus vulputate enim, et placerat libero tincidunt eget. Etiam porta mi eu mauris ullamcorper posuere",
+    "favoriteCount": 1176,
+    "dateTime": "Today, 10:17AM",
+    "user": {
+      "name": "Spencer Doyle",
+      "profileImage": "profile3"
+    }
+  },
+  {
+    "image": "food4",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id metus blandit, lobortis tellus nec, cursus dui. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus ullamcorper ipsum eu massa malesuada sodales. Pellentesque gravida diam lacus, quis pellentesque lectus tempor at. Nam congue orci sollicitudin velit cursus bibendum. In aliquet nisl quis risus ornare, sed mattis sem auctor. Phasellus consequat eros non ullamcorper vehicula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce malesuada pretium lacinia. Sed nec orci fringilla, tempor erat ac, molestie urna. Mauris dapibus vulputate enim, et placerat libero tincidunt eget. Etiam porta mi eu mauris ullamcorper posuere",
+    "favoriteCount": 308,
+    "dateTime": "Today, 09:12AM",
+    "user": {
+      "name": "Jovan Lee",
+      "profileImage": "profile4"
+    }
+  },
+  {
+    "image": "food5",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id metus blandit, lobortis tellus nec, cursus dui. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus ullamcorper ipsum eu massa malesuada sodales. Pellentesque gravida diam lacus, quis pellentesque lectus tempor at. Nam congue orci sollicitudin velit cursus bibendum. In aliquet nisl quis risus ornare, sed mattis sem auctor. Phasellus consequat eros non ullamcorper vehicula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce malesuada pretium lacinia. Sed nec orci fringilla, tempor erat ac, molestie urna. Mauris dapibus vulputate enim, et placerat libero tincidunt eget. Etiam porta mi eu mauris ullamcorper posuere",
+    "favoriteCount": 943,
+    "dateTime": "Today, 07:53AM",
+    "user": {
+      "name": "Alisha Burton",
+      "profileImage": "profile5"
+    }
+  },
+  {
+    "image": "food6",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id metus blandit, lobortis tellus nec, cursus dui. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus ullamcorper ipsum eu massa malesuada sodales. Pellentesque gravida diam lacus, quis pellentesque lectus tempor at. Nam congue orci sollicitudin velit cursus bibendum. In aliquet nisl quis risus ornare, sed mattis sem auctor. Phasellus consequat eros non ullamcorper vehicula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce malesuada pretium lacinia. Sed nec orci fringilla, tempor erat ac, molestie urna. Mauris dapibus vulputate enim, et placerat libero tincidunt eget. Etiam porta mi eu mauris ullamcorper posuere",
+    "favoriteCount": 404,
+    "dateTime": "Today, 05:28AM",
+    "user": {
+      "name": "Rogan Chadwick",
+      "profileImage": "profile6"
+    }
+  }
+]

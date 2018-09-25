@@ -47,7 +47,7 @@ class FoodListModule(private val context: Context) {
     @Provides
     @Named("cloud")
     fun cloudDataSource(): FoodDataSource {
-        return CloudFoodDataSource()
+        return CloudFoodDataSource(context)
     }
 
     @Provides

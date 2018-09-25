@@ -22,13 +22,14 @@ class FoodListPresenter (
         disposable.add(useCase!!.getFoods()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doFinally {
-                    view?.dismissLoading()
-                }
                 .subscribe( {
-                    foods -> view?.setFoodList(foods)
+                    foods ->
+                    view?.dismissLoading()
+                    view?.setFoodList(foods)
                 }, {
-                    throwable -> view?.showError(throwable.message)
+                    throwable ->
+                    view?.dismissLoading()
+                    view?.showError(throwable.message)
                 }))
     }
 

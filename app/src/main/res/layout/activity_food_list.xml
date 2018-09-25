@@ -33,6 +33,7 @@
             android:layout_height="match_parent"
             android:padding="@dimen/recycler_view_padding"
             android:clipToPadding="false"
+            android:background="@color/colorAccent"
             tools:listitem="@layout/layout_item_recycler_view"/>
 
     </android.support.v4.widget.SwipeRefreshLayout>
