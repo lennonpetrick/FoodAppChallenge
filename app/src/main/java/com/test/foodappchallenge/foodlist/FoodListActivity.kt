@@ -1,13 +1,16 @@
-package com.test.foodappchallenge
+package com.test.foodappchallenge.foodlist
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
-import com.test.foodappchallenge.di.DaggerFoodListComponent
-import com.test.foodappchallenge.di.FoodListModule
+import com.test.foodappchallenge.R
 import com.test.foodappchallenge.domain.model.Food
+import com.test.foodappchallenge.fooddetail.FoodDetailActivity
+import com.test.foodappchallenge.foodlist.di.DaggerFoodListComponent
+import com.test.foodappchallenge.foodlist.di.FoodListModule
 import kotlinx.android.synthetic.main.activity_food_list.*
 import javax.inject.Inject
 
@@ -91,6 +94,8 @@ class FoodListActivity : AppCompatActivity(), FoodListContract.View {
     }
 
     private fun startFoodDetailActivity(food: Food) {
-        //TODO("not implemented")
+        val intent = Intent(this, FoodDetailActivity::class.java)
+        intent.putExtra(Food::class.java.name, food)
+        startActivity(intent)
     }
 }

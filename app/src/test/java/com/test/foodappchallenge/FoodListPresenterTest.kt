@@ -2,6 +2,8 @@ package com.test.foodappchallenge
 
 import com.test.foodappchallenge.domain.model.Food
 import com.test.foodappchallenge.domain.usecase.FoodUseCase
+import com.test.foodappchallenge.foodlist.FoodListContract
+import com.test.foodappchallenge.foodlist.FoodListPresenter
 import io.reactivex.Observable
 import io.reactivex.android.plugins.RxAndroidPlugins
 import io.reactivex.plugins.RxJavaPlugins

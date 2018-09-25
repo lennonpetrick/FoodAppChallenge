@@ -1,4 +1,4 @@
-package com.test.foodappchallenge.di
+package com.test.foodappchallenge.shared.di
 
 import javax.inject.Scope
 

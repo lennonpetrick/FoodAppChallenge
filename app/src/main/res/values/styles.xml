@@ -5,4 +5,10 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="cardViewStyle" tools:ignore="PrivateResource">@style/CardView</item>
     </style>
+
+    <style name="AppTheme.FullScreen" parent="AppTheme">
+        <item name="android:windowFullscreen">true</item>
+        <item name="windowActionBarOverlay">true</item>
+        <item name="coordinatorLayoutStyle">@style/Widget.Support.CoordinatorLayout</item>
+    </style>
 </resources>

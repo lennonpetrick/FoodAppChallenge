@@ -1,4 +1,4 @@
-package com.test.foodappchallenge
+package com.test.foodappchallenge.foodlist
 
 import com.test.foodappchallenge.domain.usecase.FoodUseCase
 import io.reactivex.android.schedulers.AndroidSchedulers

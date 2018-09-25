@@ -1,6 +1,7 @@
-package com.test.foodappchallenge
+package com.test.foodappchallenge.foodlist
 
 import com.test.foodappchallenge.domain.model.Food
+import com.test.foodappchallenge.shared.BasePresenter
 
 interface FoodListContract {
 
@@ -11,8 +12,7 @@ interface FoodListContract {
         fun dismissLoading()
     }
 
-    interface Presenter {
-        fun destroy()
+    interface Presenter : BasePresenter {
         fun load()
     }
 }

@@ -1,10 +1,8 @@
-package com.test.foodappchallenge.di
+package com.test.foodappchallenge.shared.di
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.test.foodappchallenge.FoodListActivity
-import com.test.foodappchallenge.FoodListContract
-import com.test.foodappchallenge.FoodListPresenter
+import com.test.foodappchallenge.BuildConfig
 import com.test.foodappchallenge.data.repository.FoodRepositoryImpl
 import com.test.foodappchallenge.data.repository.datasource.CloudFoodDataSource
 import com.test.foodappchallenge.data.repository.datasource.FoodDataSource
@@ -18,18 +16,7 @@ import javax.inject.Inject
 import javax.inject.Named
 
 @Module
-class FoodListModule(private val context: Context) {
-
-    @Provides
-    fun view(): FoodListContract.View {
-        return context as FoodListContract.View
-    }
-
-    @Provides
-    @Inject
-    fun presenter(view: FoodListContract.View, useCase: FoodUseCase): FoodListContract.Presenter {
-        return FoodListPresenter(view, useCase)
-    }
+open class BaseModule (protected val context: Context) {
 
     @Provides
     @Inject
@@ -60,7 +47,7 @@ class FoodListModule(private val context: Context) {
     @Provides
     fun sharedPreferences(): SharedPreferences {
         return context.getSharedPreferences(
-                FoodListActivity::class.java.name,
+                BuildConfig.APPLICATION_ID,
                 Context.MODE_PRIVATE)
     }
 

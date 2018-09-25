@@ -1,4 +1,4 @@
-package com.test.foodappchallenge
+package com.test.foodappchallenge.foodlist
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
@@ -8,9 +8,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.squareup.picasso.Picasso
+import com.test.foodappchallenge.CircleTransformation
+import com.test.foodappchallenge.R
 import com.test.foodappchallenge.domain.model.Food
+import kotlinx.android.synthetic.main.layout_content_user.view.*
 import kotlinx.android.synthetic.main.layout_item_recycler_view.view.*
-import kotlinx.android.synthetic.main.layout_item_recycler_view_header.view.*
 
 class ItemRecyclerAdapter(
         private var items: List<Food>
