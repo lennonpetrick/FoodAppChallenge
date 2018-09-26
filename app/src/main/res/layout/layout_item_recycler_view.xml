@@ -11,10 +11,10 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/card_horizontal_padding"
-        android:paddingBottom="@dimen/card_horizontal_padding"
-        android:paddingStart="@dimen/card_vertical_padding"
-        android:paddingEnd="@dimen/card_vertical_padding">
+        android:paddingTop="@dimen/food_list_card_horizontal_padding"
+        android:paddingBottom="@dimen/food_list_card_horizontal_padding"
+        android:paddingStart="@dimen/food_list_card_vertical_padding"
+        android:paddingEnd="@dimen/food_list_card_vertical_padding">
 
         <include
             android:id="@+id/content_user"
@@ -28,7 +28,7 @@
         <ImageView
             android:id="@+id/ivFoodPicture"
             android:layout_width="0dp"
-            android:layout_height="@dimen/food_picture_height"
+            android:layout_height="@dimen/food_list_picture_height"
             android:layout_marginTop="@dimen/view_horizontal_margin"
             android:scaleType="fitXY"
             app:layout_constraintTop_toBottomOf="@+id/content_user"

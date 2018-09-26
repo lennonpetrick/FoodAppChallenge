@@ -15,7 +15,7 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/content_header_right_start_margin"
+        android:layout_marginStart="@dimen/content_user_start_margin"
         app:layout_constraintBottom_toBottomOf="@+id/ivUserPicture"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ivUserPicture"
@@ -45,7 +45,7 @@
             android:id="@+id/tvFoodFavCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/food_favorite_count_start_margin"
+            android:layout_marginStart="@dimen/favorite_count_start_margin"
             app:layout_constraintTop_toTopOf="@+id/tvFoodDateTime"
             app:layout_constraintBottom_toBottomOf="@+id/tvFoodDateTime"
             app:layout_constraintStart_toEndOf="@+id/tvFoodDateTime"
@@ -54,7 +54,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:src="@android:drawable/star_off"
+            android:src="@drawable/ic_favorite_off"
             app:layout_constraintTop_toTopOf="@+id/tvFoodFavCount"
             app:layout_constraintBottom_toBottomOf="@+id/tvFoodFavCount"
             app:layout_constraintEnd_toStartOf="@+id/tvFoodFavCount"/>

@@ -1,6 +1,7 @@
 package com.test.foodappchallenge.fooddetail
 
 import android.os.Bundle
+import android.support.design.widget.AppBarLayout
 import android.support.v7.app.AppCompatActivity
 import com.squareup.picasso.Picasso
 import com.test.foodappchallenge.CircleTransformation
@@ -16,6 +17,8 @@ class FoodDetailActivity : AppCompatActivity(), FoodDetailContract.View {
 
     @Inject
     lateinit var presenter: FoodDetailContract.Presenter
+
+    private val collapsingTitleTrigger = 0.645
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,6 +48,20 @@ class FoodDetailActivity : AppCompatActivity(), FoodDetailContract.View {
             this.setDisplayHomeAsUpEnabled(true)
             this.setDisplayShowHomeEnabled(true)
         }
+
+        appBar.addOnOffsetChangedListener(
+                AppBarLayout.OnOffsetChangedListener { _, offSet ->
+                    supportActionBar?.let {
+                        val triggerPercent = appBar.totalScrollRange * collapsingTitleTrigger
+                        if (Math.abs(offSet) >= (triggerPercent)) {
+                            collapsing.isTitleEnabled = true
+                            it.setDisplayShowTitleEnabled(true)
+                        } else {
+                            collapsing.isTitleEnabled = false
+                            it.setDisplayShowTitleEnabled(false)
+                        }
+                    }
+        })
     }
 
 
