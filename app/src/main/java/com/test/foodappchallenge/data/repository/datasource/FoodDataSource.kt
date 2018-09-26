@@ -26,6 +26,7 @@ abstract class FoodDataSource {
 
     /**
      * It gets a list of food from a resource
+     *
      * @return A single of array list of food
      * */
     abstract fun getFoods(): Single<List<FoodEntity>>

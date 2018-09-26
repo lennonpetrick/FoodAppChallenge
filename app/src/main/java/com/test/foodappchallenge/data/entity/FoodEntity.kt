@@ -1,6 +1,7 @@
 package com.test.foodappchallenge.data.entity
 
 data class FoodEntity (
+        var id: Long = 0,
         var image: String? = null,
         var description: String? = null,
         var favoriteCount: Int = 0,

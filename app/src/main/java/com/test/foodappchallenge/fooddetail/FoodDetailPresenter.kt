@@ -2,7 +2,9 @@ package com.test.foodappchallenge.fooddetail
 
 import com.test.foodappchallenge.domain.model.Food
 import com.test.foodappchallenge.domain.usecase.FoodUseCase
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
 
 class FoodDetailPresenter (
         private var view: FoodDetailContract.View?,
@@ -42,10 +44,18 @@ class FoodDetailPresenter (
     override fun favoriteFood() {
         view?.let { view ->
             food?.let {
-                //it.favoriteCount += 1
-                it.favorite = !it.favorite
-                //view.setFavoriteNumber(it.favoriteCount)
-                view.setFavoriteOnOff(it.favorite)
+                disposable.add(useCase!!.favoriteFood(food!!)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe( {
+                            food ->
+                            view.setFavoriteNumber(food.favoriteCount)
+                            view.setFavoriteOnOff(food.favorite)
+                        }, {
+                            throwable ->
+                            //view?.dismissLoading()
+                            //view?.showError(throwable.message)
+                        }))
             }
         }
     }

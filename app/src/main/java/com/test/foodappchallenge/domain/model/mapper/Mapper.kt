@@ -16,6 +16,8 @@ internal fun foodEntityListToModelList(entities: List<FoodEntity>): List<Food> {
 
 internal fun foodEntityToModel(entity: FoodEntity): Food {
     return Food(
+            id = entity.id,
+            favorite = entity.favorite,
             user = userEntityToModel(entity.user!!),
             image = entity.image,
             description = entity.description,
@@ -28,5 +30,33 @@ internal fun userEntityToModel(entity: UserEntity): User {
     return User(
             entity.name,
             entity.profileImage
+    )
+}
+
+internal fun modelListToFoodEntityList(models: List<Food>): List<FoodEntity> {
+    val entities = arrayListOf<FoodEntity>()
+    for (model in models) {
+        entities.add(modelToFoodEntity(model))
+    }
+
+    return entities
+}
+
+internal fun modelToFoodEntity(model: Food): FoodEntity {
+    return FoodEntity(
+            id = model.id,
+            favorite = model.favorite,
+            user = modelToUserEntity(model.user!!),
+            image = model.image,
+            description = model.description,
+            favoriteCount = model.favoriteCount,
+            dateTime = model.dateTime
+    )
+}
+
+internal fun modelToUserEntity(model: User): UserEntity {
+    return UserEntity(
+            model.name,
+            model.profileImage
     )
 }
