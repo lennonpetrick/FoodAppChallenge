@@ -42,7 +42,9 @@ class ItemRecyclerAdapter(
     private fun createListener(view: View, holder: ViewHolder): ViewHolder {
         view.setOnClickListener {
             onItemClickListener?.onItemClick(
-                    items[holder.adapterPosition], holder.adapterPosition)
+                    view,
+                    items[holder.adapterPosition],
+                    holder.adapterPosition)
         }
         return holder
     }
@@ -85,6 +87,6 @@ class ItemRecyclerAdapter(
     }
 
     interface OnItemClickListener {
-        fun onItemClick(item: Food, position: Int)
+        fun onItemClick(itemView: View, item: Food, position: Int)
     }
 }

@@ -3,6 +3,8 @@ package com.test.foodappchallenge.fooddetail
 import android.os.Bundle
 import android.support.design.widget.AppBarLayout
 import android.support.v7.app.AppCompatActivity
+import android.view.MenuItem
+import android.view.animation.AnimationUtils
 import com.squareup.picasso.Picasso
 import com.test.foodappchallenge.CircleTransformation
 import com.test.foodappchallenge.R
@@ -24,6 +26,7 @@ class FoodDetailActivity : AppCompatActivity(), FoodDetailContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_food_detail)
         injectDependencies()
+        startAnimations()
         setUpViews()
         val food = intent.extras?.getSerializable(Food::class.java.name) as Food
         bind(food)
@@ -32,6 +35,20 @@ class FoodDetailActivity : AppCompatActivity(), FoodDetailContract.View {
     override fun onDestroy() {
         presenter.destroy()
         super.onDestroy()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                supportFinishAfterTransition()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onBackPressed() {
+        supportFinishAfterTransition()
     }
 
     private fun injectDependencies() {
@@ -62,6 +79,11 @@ class FoodDetailActivity : AppCompatActivity(), FoodDetailContract.View {
                         }
                     }
         })
+    }
+
+    private fun startAnimations() {
+        tvFoodDescription.startAnimation(
+                AnimationUtils.loadAnimation(this, R.anim.slide_up))
     }
 
 

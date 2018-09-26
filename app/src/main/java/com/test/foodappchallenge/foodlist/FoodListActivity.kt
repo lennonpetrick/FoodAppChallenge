@@ -3,9 +3,12 @@ package com.test.foodappchallenge.foodlist
 import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
+import android.support.v4.app.ActivityOptionsCompat
+import android.support.v4.util.Pair
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
+import android.view.View
 import com.test.foodappchallenge.R
 import com.test.foodappchallenge.domain.model.Food
 import com.test.foodappchallenge.fooddetail.FoodDetailActivity
@@ -75,8 +78,8 @@ class FoodListActivity : AppCompatActivity(), FoodListContract.View {
         recyclerView.apply {
             adapter = ItemRecyclerAdapter(arrayListOf()).apply {
                 onItemClickListener = object: ItemRecyclerAdapter.OnItemClickListener {
-                    override fun onItemClick(item: Food, position: Int) {
-                        startFoodDetailActivity(item)
+                    override fun onItemClick(itemView: View, item: Food, position: Int) {
+                        startFoodDetailActivity(itemView, item)
                     }
                 }
             }
@@ -93,9 +96,15 @@ class FoodListActivity : AppCompatActivity(), FoodListContract.View {
         }
     }
 
-    private fun startFoodDetailActivity(food: Food) {
+    private fun startFoodDetailActivity(itemView: View, food: Food) {
+        val options = createTransitionOptions(itemView)
         val intent = Intent(this, FoodDetailActivity::class.java)
         intent.putExtra(Food::class.java.name, food)
-        startActivity(intent)
+        startActivity(intent, options.toBundle())
+    }
+
+    private fun createTransitionOptions(itemView: View): ActivityOptionsCompat {
+        return ActivityOptionsCompat.makeSceneTransitionAnimation(this,
+                Pair(itemView.findViewById(R.id.ivFoodPicture), "food_picture"))
     }
 }
