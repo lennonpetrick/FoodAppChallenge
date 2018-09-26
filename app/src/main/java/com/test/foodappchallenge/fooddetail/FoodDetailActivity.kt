@@ -5,6 +5,7 @@ import android.support.design.widget.AppBarLayout
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import android.view.animation.AnimationUtils
+import com.jakewharton.rxbinding2.view.RxView
 import com.squareup.picasso.Picasso
 import com.test.foodappchallenge.CircleTransformation
 import com.test.foodappchallenge.R
@@ -13,6 +14,7 @@ import com.test.foodappchallenge.fooddetail.di.DaggerFoodDetailComponent
 import com.test.foodappchallenge.fooddetail.di.FoodDetailModule
 import kotlinx.android.synthetic.main.activity_food_detail.*
 import kotlinx.android.synthetic.main.layout_content_user.*
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class FoodDetailActivity : AppCompatActivity(), FoodDetailContract.View {
@@ -28,8 +30,10 @@ class FoodDetailActivity : AppCompatActivity(), FoodDetailContract.View {
         injectDependencies()
         startAnimations()
         setUpViews()
-        val food = intent.extras?.getSerializable(Food::class.java.name) as Food
-        bind(food)
+
+        intent.extras?.let {
+            handleExtras(it)
+        }
     }
 
     override fun onDestroy() {
@@ -51,12 +55,55 @@ class FoodDetailActivity : AppCompatActivity(), FoodDetailContract.View {
         supportFinishAfterTransition()
     }
 
+    override fun setUserPicture(image: String) {
+        Picasso.get()
+                .load(getDrawableId(image))
+                .transform(CircleTransformation())
+                .into(ivUserPicture)
+    }
+
+    override fun setUserName(name: String?) {
+        tvUserName.text = name
+    }
+
+    override fun setDateTime(dateTime: String?) {
+        tvFoodDateTime.text = dateTime
+    }
+
+    override fun setDescription(description: String?) {
+        tvFoodDescription.text = description
+    }
+
+    override fun setFavoriteNumber(number: Int?) {
+        tvFoodFavCount.text = number?.toString()
+    }
+
+    override fun setFoodPicture(image: String) {
+        Picasso.get()
+                .load(getDrawableId(image))
+                .into(ivFoodPicture)
+    }
+
+    override fun setFavoriteOnOff(param: Boolean) {
+        fabFavorite.setImageResource(
+                if (param)
+                    R.drawable.ic_favorite_on
+                else
+                    R.drawable.ic_favorite_off
+        )
+    }
+
     private fun injectDependencies() {
         DaggerFoodDetailComponent
                 .builder()
                 .foodDetailModule(FoodDetailModule(this))
                 .build()
                 .inject(this)
+    }
+
+    private fun startAnimations() {
+        tvFoodDescription.startAnimation(
+                AnimationUtils.loadAnimation(this, R.anim.slide_up))
     }
 
     private fun setUpViews() {
@@ -78,36 +125,18 @@ class FoodDetailActivity : AppCompatActivity(), FoodDetailContract.View {
                             it.setDisplayShowTitleEnabled(false)
                         }
                     }
-        })
+                })
+
+        RxView.clicks(fabFavorite)
+                .throttleFirst(1, TimeUnit.SECONDS)
+                .subscribe {
+                    presenter.favoriteFood()
+                }
     }
 
-    private fun startAnimations() {
-        tvFoodDescription.startAnimation(
-                AnimationUtils.loadAnimation(this, R.anim.slide_up))
-    }
-
-
-    fun bind(food: Food) {
-        food.user?.let { user ->
-            user.profileImage?.let {
-                Picasso.get()
-                        .load(getDrawableId(it))
-                        .transform(CircleTransformation())
-                        .into(ivUserPicture)
-            }
-
-            tvUserName.text = user.name
-        }
-
-        food.image?.let {
-            Picasso.get()
-                    .load(getDrawableId(it))
-                    .into(ivFoodPicture)
-        }
-
-        tvFoodDateTime.text = food.dateTime
-        tvFoodFavCount.text = food.favoriteCount.toString()
-        tvFoodDescription.text = food.description
+    private fun handleExtras(extras: Bundle) {
+        val food = extras.getSerializable(Food::class.java.name) as Food
+        presenter.loadScreen(food)
     }
 
     private fun getDrawableId(key: String): Int {
