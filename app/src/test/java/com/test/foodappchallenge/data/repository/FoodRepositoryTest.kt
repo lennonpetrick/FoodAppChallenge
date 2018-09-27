@@ -17,11 +17,14 @@ class FoodRepositoryTest {
 
     @Mock private lateinit var cloudDataSource: CloudFoodDataSource
     @Mock private lateinit var localDataSource: LocalFoodDataSource
-    @Mock private lateinit var entities: List<FoodEntity>
 
     @Before
     fun setUp() {
         MockitoAnnotations.initMocks(this)
+
+        val entity = FoodEntity()
+        val entities =  arrayListOf<FoodEntity>()
+        entities.add(entity)
 
         `when`(cloudDataSource.getFoods()).thenReturn(Single.just(entities))
         `when`(localDataSource.getFoods()).thenReturn(Single.just(entities))
@@ -54,5 +57,21 @@ class FoodRepositoryTest {
                 .assertValueCount(2)
 
         verify(localDataSource).getFoods()
+    }
+
+    @Test
+    fun `retrieve foods from memory`() {
+        `when`(localDataSource.isCached()).thenReturn(false)
+
+        repository.getFoods()
+                .test()
+                .assertValueCount(1)
+
+        repository.getFoods()
+                .test()
+                .assertValueCount(1)
+
+        verify(localDataSource, never()).getFoods()
+        verify(cloudDataSource, times(1)).getFoods()
     }
 }

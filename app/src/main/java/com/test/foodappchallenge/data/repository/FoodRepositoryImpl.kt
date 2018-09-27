@@ -7,7 +7,7 @@ import com.test.foodappchallenge.domain.FoodRepository
 import io.reactivex.Completable
 import io.reactivex.Observable
 
-class FoodRepositoryImpl(
+class FoodRepositoryImpl private constructor(
         private val cloudDataSource: FoodDataSource,
         private val localDataSource: FoodDataSource
 ) : FoodRepository {
@@ -32,8 +32,8 @@ class FoodRepositoryImpl(
 
     @Suppress("UNCHECKED_CAST")
     override fun getFoods(): Observable<List<FoodEntity>> {
-        if (memoryCache != null) {
-            return Observable.just(memoryCache!!.values as List<FoodEntity>)
+        if (memoryCache != null && memoryCache!!.isNotEmpty()) {
+            return Observable.just(memoryCache!!.values.toList())
         }
 
         val local = localDataSource as LocalStorage<List<FoodEntity>>
@@ -41,7 +41,8 @@ class FoodRepositoryImpl(
                 .map {
                     local.save(it)
                     putInMemory(it)
-                it}
+                    it
+                }
                 .toObservable()
 
         if (!local.isCached()) {
@@ -59,14 +60,14 @@ class FoodRepositoryImpl(
             putInMemory(foodEntity)
 
             val local = localDataSource as LocalStorage<List<FoodEntity>>
-            local.save(memoryCache?.values as List<FoodEntity>)
+            local.save(memoryCache!!.values.toList())
             emitter.onComplete()
         }
     }
 
     private fun putInMemory(entities: List<FoodEntity>) {
         if (memoryCache == null) {
-            memoryCache = HashMap()
+            memoryCache = LinkedHashMap()
         }
 
         memoryCache!!.let {

@@ -1,9 +1,12 @@
 package com.test.foodappchallenge.fooddetail
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.design.widget.AppBarLayout
+import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
+import android.view.View
 import android.view.animation.AnimationUtils
 import com.jakewharton.rxbinding2.view.RxView
 import com.squareup.picasso.Picasso
@@ -55,6 +58,12 @@ class FoodDetailActivity : AppCompatActivity(), FoodDetailContract.View {
         supportFinishAfterTransition()
     }
 
+    @SuppressLint("RestrictedApi")
+    override fun supportFinishAfterTransition() {
+        fabFavorite.visibility = View.GONE
+        super.supportFinishAfterTransition()
+    }
+
     override fun setUserPicture(image: String) {
         Picasso.get()
                 .load(getDrawableId(image))
@@ -93,6 +102,12 @@ class FoodDetailActivity : AppCompatActivity(), FoodDetailContract.View {
         )
     }
 
+    override fun showError(error: String?) {
+        Snackbar.make(screenContent,
+                error ?: getText(R.string.unknown_error),
+                Snackbar.LENGTH_LONG).show()
+    }
+
     private fun injectDependencies() {
         DaggerFoodDetailComponent
                 .builder()
@@ -102,6 +117,7 @@ class FoodDetailActivity : AppCompatActivity(), FoodDetailContract.View {
     }
 
     private fun startAnimations() {
+        fabFavorite.show()
         tvFoodDescription.startAnimation(
                 AnimationUtils.loadAnimation(this, R.anim.slide_up))
     }

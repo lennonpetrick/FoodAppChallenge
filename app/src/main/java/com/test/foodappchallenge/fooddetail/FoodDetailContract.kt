@@ -12,6 +12,7 @@ interface FoodDetailContract {
         fun setFavoriteNumber(number: Int?)
         fun setFoodPicture(image: String)
         fun setFavoriteOnOff(param: Boolean)
+        fun showError(error: String?)
     }
 
     interface Presenter : BasePresenter {

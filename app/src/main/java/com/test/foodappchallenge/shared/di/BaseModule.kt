@@ -28,7 +28,7 @@ open class BaseModule (protected val context: Context) {
     @Inject
     fun repository(@Named("cloud") cloudDataSource: FoodDataSource,
                    @Named("local") localDataSource: FoodDataSource): FoodRepository {
-        return FoodRepositoryImpl(cloudDataSource, localDataSource)
+        return FoodRepositoryImpl.getInstance(cloudDataSource, localDataSource)
     }
 
     @Provides

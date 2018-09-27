@@ -1,13 +1,9 @@
-package com.test.foodappchallenge
+package com.test.foodappchallenge.foodlist
 
+import com.test.foodappchallenge.BasePresenterTest
 import com.test.foodappchallenge.domain.model.Food
 import com.test.foodappchallenge.domain.usecase.FoodUseCase
-import com.test.foodappchallenge.foodlist.FoodListContract
-import com.test.foodappchallenge.foodlist.FoodListPresenter
 import io.reactivex.Observable
-import io.reactivex.android.plugins.RxAndroidPlugins
-import io.reactivex.plugins.RxJavaPlugins
-import io.reactivex.schedulers.Schedulers
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
@@ -15,7 +11,7 @@ import org.mockito.Mock
 import org.mockito.Mockito.*
 import org.mockito.MockitoAnnotations
 
-class FoodListPresenterTest {
+class FoodListPresenterTest : BasePresenterTest() {
 
     private lateinit var presenter: FoodListContract.Presenter
 
@@ -33,8 +29,7 @@ class FoodListPresenterTest {
     @After
     fun tearDown() {
         presenter.destroy()
-        RxJavaPlugins.reset()
-        RxAndroidPlugins.reset()
+        resetSchedulers()
     }
 
     @Test
@@ -59,10 +54,5 @@ class FoodListPresenterTest {
         verify(view).dismissLoading()
         verify(view).showError(anyString())
         verify(view, never()).setFoodList(anyList())
-    }
-
-    private fun setUpSchedulers() {
-        RxJavaPlugins.setIoSchedulerHandler { Schedulers.trampoline() }
-        RxAndroidPlugins.setInitMainThreadSchedulerHandler { Schedulers.trampoline() }
     }
 }

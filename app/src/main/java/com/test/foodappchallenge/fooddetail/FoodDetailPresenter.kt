@@ -53,8 +53,7 @@ class FoodDetailPresenter (
                             view.setFavoriteOnOff(food.favorite)
                         }, {
                             throwable ->
-                            //view?.dismissLoading()
-                            //view?.showError(throwable.message)
+                            view.showError(throwable.message)
                         }))
             }
         }
