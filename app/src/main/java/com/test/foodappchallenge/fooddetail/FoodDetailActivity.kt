@@ -144,7 +144,7 @@ class FoodDetailActivity : AppCompatActivity(), FoodDetailContract.View {
                 })
 
         RxView.clicks(fabFavorite)
-                .throttleFirst(1, TimeUnit.SECONDS)
+                .throttleFirst(500, TimeUnit.MILLISECONDS)
                 .subscribe {
                     presenter.favoriteFood()
                 }

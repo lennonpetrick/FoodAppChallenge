@@ -22,6 +22,7 @@ class FoodListActivity : AppCompatActivity(), FoodListContract.View {
     @Inject lateinit var presenter: FoodListContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_food_list)
         injectDependencies()
