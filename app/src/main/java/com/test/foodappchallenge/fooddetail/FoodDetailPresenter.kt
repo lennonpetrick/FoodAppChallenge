@@ -54,6 +54,7 @@ class FoodDetailPresenter (
                         }, {
                             throwable ->
                             view.showError(throwable.message)
+                            throwable.printStackTrace()
                         }))
             }
         }
