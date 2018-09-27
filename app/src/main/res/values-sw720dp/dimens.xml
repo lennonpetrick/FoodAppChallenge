@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="view_horizontal_margin">40dp</dimen>
+    <dimen name="image_user_size">120dp</dimen>
+    <dimen name="content_user_start_margin">40dp</dimen>
+    <dimen name="favorite_count_start_margin">100dp</dimen>
+
+    <!-- TEXT VIEW STYLES -->
+    <dimen name="text_size_small">22sp</dimen>
+    <dimen name="text_size_medium">26sp</dimen>
+    <dimen name="text_size_large">32sp</dimen>
+
+    <!-- FOOD LIST ACTIVITY -->
+    <dimen name="recycler_view_padding">30dp</dimen>
+
+    <!-- ITEM RECYCLER VIEW -->
+    <dimen name="food_list_card_vertical_padding">30dp</dimen>
+    <dimen name="food_list_card_horizontal_padding">45dp</dimen>
+    <dimen name="food_list_picture_height">400dp</dimen>
+
+    <!-- FOOD DETAIL ACTIVITY -->
+    <dimen name="food_detail_picture_height">500dp</dimen>
+    <dimen name="food_detail_collapsing_scrim_trigger">250dp</dimen>
+    <dimen name="food_detail_content_description_top_padding">60dp</dimen>
+    <dimen name="food_detail_content_description_vertical_padding">50dp</dimen>
+    <dimen name="food_detail_fab_margin">42dp</dimen>
+</resources>

@@ -25,7 +25,7 @@ class FoodDetailActivity : AppCompatActivity(), FoodDetailContract.View {
     @Inject
     lateinit var presenter: FoodDetailContract.Presenter
 
-    private val collapsingTitleTrigger = 0.645
+    private val collapsingTitleTrigger = 0.65
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
